@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/cross-stitch-calculator/static/css/main.7acaea2f.css",
-    "main.js": "/cross-stitch-calculator/static/js/main.e64006c2.js",
+    "main.js": "/cross-stitch-calculator/static/js/main.cb6cea25.js",
     "index.html": "/cross-stitch-calculator/index.html",
     "main.7acaea2f.css.map": "/cross-stitch-calculator/static/css/main.7acaea2f.css.map",
-    "main.e64006c2.js.map": "/cross-stitch-calculator/static/js/main.e64006c2.js.map"
+    "main.cb6cea25.js.map": "/cross-stitch-calculator/static/js/main.cb6cea25.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.e64006c2.js"
+    "static/js/main.cb6cea25.js"
   ]
 }
