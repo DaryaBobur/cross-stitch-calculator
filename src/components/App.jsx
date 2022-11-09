@@ -1,7 +1,14 @@
-export const App = () => {
+import Form from "./Form/Form";
+
+
+const App = () => {
   return (
     <div>
-      React homework template
+      <h1>Cross Stitch Calculator</h1>
+
+      <Form/>
     </div>
   );
 };
+
+export default App;
