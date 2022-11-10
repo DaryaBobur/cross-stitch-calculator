@@ -1,7 +1,9 @@
 import { FormStyled } from "./FormStyled";
 import { useState } from "react";
+import TextField from '@mui/material/TextField';
 
-const Form = ({onSubmit}) => {
+
+const Form = ({ onSubmit }) => {
     
     const [widthStitch, setWidthStitch] = useState('');
     const [heightStitch, setHeightStitch] = useState('');
@@ -10,8 +12,8 @@ const Form = ({onSubmit}) => {
   
     const handleChange = evt => {
         console.log(evt.target.value)
-      const { name, value } = evt.currentTarget;
-  
+        const { name, value } = evt.currentTarget;
+
         switch(name) {
           case 'widthStitch':
           setWidthStitch(value);
@@ -28,8 +30,10 @@ const Form = ({onSubmit}) => {
           case 'size':
           setSize(value);
           break;
+
           default:
           return;
+
           }
       };
 
@@ -37,7 +41,6 @@ const Form = ({onSubmit}) => {
     const handleSubmit = e => {
         e.preventDefault();
         onSubmit({ widthStitch, heightStitch, marginStitch, size });
-
         resetForm();
     };
 
@@ -50,41 +53,47 @@ const Form = ({onSubmit}) => {
         setSize('');
     }
 
-
     return (
 
         <FormStyled autocomplete="off" onSubmit={handleSubmit}>
-            <label>Розмір вишивки в хрестиках
-                <input 
-                    type="number" 
-                    name="widthStitch" 
-                    onChange={handleChange} 
-                    value={widthStitch}
-                    required
-                />
-                x
-                <input 
-                    type="number" 
-                    name="heightStitch" 
-                    onChange={handleChange} 
-                    value={heightStitch}
-                    required
-                />
-            </label>
-            
-            <label>Відступ від краю(см)
-                <input type="number" 
-                name="marginStitch" 
-                onChange={handleChange}
-                value={marginStitch}
-                required
-                />
-            </label>
+            <p>Розмір вишивки в хрестиках</p>
+            <TextField 
+            label="Довжина" 
+            variant="outlined" 
+            type="number" 
+            name="widthStitch" 
+            onChange={handleChange} 
+            value={widthStitch}
+            size="small"
+            required
+            />
+            x
+            <TextField 
+            label="Висота" 
+            variant="outlined" 
+            type="number" 
+            name="widthStitch" 
+            onChange={handleChange} 
+            value={widthStitch}
+            size="small"
+            required
+            />
 
+            <TextField 
+            type="number" 
+            label="Відступ від краю(см)"
+            name="marginStitch" 
+            onChange={handleChange}
+            value={marginStitch}
+            size="small"
+            required
+            />
+      
             <label>Розмір вишивки на канві
-            <select name="size" value={size} onChange={handleChange} >
+            <select name="size" value={size} onChange={handleChange} required>
                 <option>Оберіть канву...</option>
-                    <optgroup label="Канва">
+
+                <optgroup label="Канва">
                     <option value="14">14 каунт</option>
                     <option value="16">16 каунт</option>
                     <option value="18">18 каунт</option>
@@ -114,7 +123,7 @@ const Form = ({onSubmit}) => {
                     <option value="40">40 каунт(через 2 нитки)</option>
                     <option value="46">46 каунт(через 2 нитки)</option>
                     <option value="56">56 каунт(через 2 нитки)</option>
-                    </optgroup>
+                </optgroup>
 
             </select>
             </label>
