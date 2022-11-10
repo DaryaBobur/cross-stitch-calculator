@@ -1,39 +1,27 @@
 import Form from "./Form/Form";
 import { Toaster } from 'react-hot-toast'
-// import { useState } from "react";
-
+import { useState } from "react";
+import InfoEmbroidery from "./InfoEmbroidery";
 const App = () => {
-  // const addContact = (data) => {
-  //   if(duplicateName(data)) {
-  //     return toast.error(`${data.name} is already in contacts!`)
-  //   }
 
-  //   const contact = {
-  //     id: nanoid(),
-  //     name: data.name,
-  //     number: data.number,
-  //   }
-   
-  //   setContacts(prevState => [contact, ...prevState]);
-  // };
-//   const [number, setNumber] = useState(0)
-
-// const readValue =(data)=> {
-//       const value = {
-//       // id: nanoid(),
-//       numbers: data.number,
-//       // height: data.height,
-//       // margin: data.margin,
-//     }
-//     setNumber(value)
-   
-// }
+  const [sizeWork, setSizeWork] = useState('')
+  const sizeEmbroidery = (data) => {
+    console.log(data)
+  const stitch = {
+    width: data.widthStitch,
+    height: data.heightStitch,
+    margin: data.marginStitch,
+    size: data.size,
+  }  
+  setSizeWork(stitch)
+  }
 
   return (
     <div>
       <h1>Cross Stitch Calculator</h1>
 
-      <Form/>
+      <Form onSubmit={sizeEmbroidery}/>
+      {sizeWork && <InfoEmbroidery size={sizeWork}/>}
       <Toaster/>
     </div>
   );
