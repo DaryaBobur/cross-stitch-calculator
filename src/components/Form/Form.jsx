@@ -1,7 +1,8 @@
 import { FormStyled } from "./FormStyled";
 import { useState } from "react";
 import TextField from '@mui/material/TextField';
-
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 const Form = ({ onSubmit }) => {
     
@@ -56,11 +57,13 @@ const Form = ({ onSubmit }) => {
     return (
 
         <FormStyled autocomplete="off" onSubmit={handleSubmit}>
+            
+            <Box sx={{display: 'flex', alignItems: 'center'}}>
             <p>Розмір вишивки в хрестиках</p>
             <TextField 
-            label="Довжина" 
+            sx={{width: '60px', marginRight: '5px'}}
             variant="outlined" 
-            type="number" 
+            type="text" 
             name="widthStitch" 
             onChange={handleChange} 
             value={widthStitch}
@@ -69,26 +72,28 @@ const Form = ({ onSubmit }) => {
             />
             x
             <TextField 
-            label="Висота" 
+            sx={{width: '60px', marginLeft: '5px'}}
             variant="outlined" 
-            type="number" 
-            name="widthStitch" 
+            type="text" 
+            name="heightStitch" 
             onChange={handleChange} 
-            value={widthStitch}
+            value={heightStitch}
             size="small"
             required
             />
-
+            </Box>
+            <Box sx={{display: 'flex', alignItems: 'center'}}>
+            <p>Відступ від краю(см)</p>
             <TextField 
-            type="number" 
-            label="Відступ від краю(см)"
+            type="text" 
+            sx={{width: '60px'}}
             name="marginStitch" 
             onChange={handleChange}
             value={marginStitch}
             size="small"
             required
             />
-      
+            </Box>
             <label>Розмір вишивки на канві
             <select name="size" value={size} onChange={handleChange} required>
                 <option>Оберіть канву...</option>
@@ -127,7 +132,8 @@ const Form = ({ onSubmit }) => {
 
             </select>
             </label>
-            <button type="submit">Розрахунок</button>
+       
+            <Button type="submit" variant="contained">Розрахунок</Button>
         </FormStyled>
 
     )
