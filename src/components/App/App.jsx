@@ -15,13 +15,14 @@ const App = () => {
     height: data.heightStitch,
     margin: data.marginStitch,
     size: data.size,
+    amountYarn: data.amountYarn,
   }  
   setSizeWork(stitch)
   }
 
   return (
     <Container>
-      <Title>Cross Stitch Calculator</Title>
+      <Title>Калькулятор канви</Title>
 
       <Form onSubmit={sizeEmbroidery}/>
       {sizeWork && <InfoEmbroidery size={sizeWork}/>}
