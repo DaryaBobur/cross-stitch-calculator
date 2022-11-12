@@ -3,6 +3,8 @@ import { useState } from "react";
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import NativeSelect from '@mui/material/NativeSelect';
+import MenuItem from '@mui/material/MenuItem';
 
 const Form = ({ onSubmit }) => {
     
@@ -10,6 +12,7 @@ const Form = ({ onSubmit }) => {
     const [heightStitch, setHeightStitch] = useState('');
     const [marginStitch, setMarginStitch] = useState('');
     const [size, setSize] = useState('');
+    const [amountYarn, setAmountYarn] = useState('')
   
     const handleChange = evt => {
         console.log(evt.target.value)
@@ -32,6 +35,10 @@ const Form = ({ onSubmit }) => {
           setSize(value);
           break;
 
+          case 'amountYarn':
+          setAmountYarn(value);
+          break;
+
           default:
           return;
 
@@ -41,7 +48,7 @@ const Form = ({ onSubmit }) => {
   
     const handleSubmit = e => {
         e.preventDefault();
-        onSubmit({ widthStitch, heightStitch, marginStitch, size });
+        onSubmit({ widthStitch, heightStitch, marginStitch, size, amountYarn });
         resetForm();
     };
 
@@ -59,7 +66,7 @@ const Form = ({ onSubmit }) => {
         <FormStyled autocomplete="off" onSubmit={handleSubmit}>
             
             <Box sx={{display: 'flex', alignItems: 'center'}}>
-            <p>Розмір вишивки в хрестиках</p>
+            <label>Розмір вишивки в хрестиках:
             <TextField 
             sx={{width: '60px', marginRight: '5px'}}
             variant="outlined" 
@@ -81,9 +88,10 @@ const Form = ({ onSubmit }) => {
             size="small"
             required
             />
+            </label>
             </Box>
             <Box sx={{display: 'flex', alignItems: 'center'}}>
-            <p>Відступ від краю(см)</p>
+            <label>Відступ від краю(см):
             <TextField 
             type="text" 
             sx={{width: '60px'}}
@@ -93,9 +101,34 @@ const Form = ({ onSubmit }) => {
             size="small"
             required
             />
+            </label>
             </Box>
-            <label>Розмір вишивки на канві
-            <select name="size" value={size} onChange={handleChange} required>
+            <Box sx={{display: 'flex', alignItems: 'center'}}>
+            <label>Через скільки ниток будемо вишивати:
+            
+            <NativeSelect 
+            name="amountYarn" 
+            value={amountYarn} 
+            onChange={handleChange} 
+            size="small" 
+            sx={{width: '150px'}} 
+            required>
+                <option>Кількість ниток...</option>
+                <option value="1">1 нитка</option>
+                <option value="2">2 нитки</option>
+            </NativeSelect>
+            </label>
+            </Box>
+
+            <Box sx={{display: 'flex', alignItems: 'center'}}></Box>
+            <label>Розмір вишивки на канві:
+            <NativeSelect 
+            name="size" 
+            value={size} 
+            onChange={handleChange} 
+            size="small" 
+            sx={{width: '150px'}} 
+            required>
                 <option>Оберіть канву...</option>
 
                 <optgroup label="Канва">
@@ -106,31 +139,19 @@ const Form = ({ onSubmit }) => {
                     <option value="22">22 каунт</option>
                 </optgroup>
 
-                <optgroup label="Канва рівномірного плетіння через 1 нитку">
-                    <option value="25">25 каунт(через 1 нитку)</option>
-                    <option value="27">27 каунт(через 1 нитку)</option>
-                    <option value="28">28 каунт(через 1 нитку)</option>
-                    <option value="30">30 каунт(через 1 нитку)</option>
-                    <option value="32">32 каунт(через 1 нитку)</option>
-                    <option value="36">36 каунт(через 1 нитку)</option>
-                    <option value="40">40 каунт(через 1 нитку)</option>
-                    <option value="46">46 каунт(через 1 нитку)</option>
-                    <option value="56">56 каунт(через 1 нитку)</option>
-                </optgroup>
-                
-                <optgroup label="Канва рівномірного плетіння через 2 нитки">
-                    <option value="25">25 каунт(через 2 нитки)</option>
-                    <option value="27">27 каунт(через 2 нитки)</option>
-                    <option value="28">28 каунт(через 2 нитки)</option>
-                    <option value="30">30 каунт(через 2 нитки)</option>
-                    <option value="32">32 каунт(через 2 нитки)</option>
-                    <option value="36">36 каунт(через 2 нитки)</option>
-                    <option value="40">40 каунт(через 2 нитки)</option>
-                    <option value="46">46 каунт(через 2 нитки)</option>
-                    <option value="56">56 каунт(через 2 нитки)</option>
+                <optgroup label="Канва рівномірного плетіння">
+                    <option value="25">25 каунт</option>
+                    <option value="27">27 каунт</option>
+                    <option value="28">28 каунт</option>
+                    <option value="30">30 каунт</option>
+                    <option value="32">32 каунт</option>
+                    <option value="36">36 каунт</option>
+                    <option value="40">40 каунт</option>
+                    <option value="46">46 каунт</option>
+                    <option value="56">56 каунт</option>
                 </optgroup>
 
-            </select>
+            </NativeSelect>
             </label>
        
             <Button type="submit" variant="contained">Розрахунок</Button>
