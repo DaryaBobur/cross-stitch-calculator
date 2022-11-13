@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import NativeSelect from '@mui/material/NativeSelect';
-
+import img from '../../img/w3.jpg'
 const Form = ({ onSubmit }) => {
     
     const [widthStitch, setWidthStitch] = useState('');
@@ -153,7 +153,7 @@ const Form = ({ onSubmit }) => {
             </NativeSelect>
             </label>
        
-            <Button type="submit" variant="contained">Розрахунок</Button>
+            <Button type="submit" variant="contained" sx={{backgroundImage: `url(${img})`}}>Розрахунок</Button>
         </FormStyled>
 
     )
