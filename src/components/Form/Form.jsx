@@ -67,7 +67,7 @@ const Form = ({ onSubmit }) => {
             <Box sx={{display: 'flex', alignItems: 'center'}}>
             <label>Розмір вишивки в хрестиках:
             <TextField 
-            sx={{width: '60px', marginRight: '5px'}}
+            sx={{width: '60px', marginRight: '5px', padding: '0'}}
             variant="outlined" 
             type="text" 
             name="widthStitch" 
@@ -78,7 +78,7 @@ const Form = ({ onSubmit }) => {
             />
             x
             <TextField 
-            sx={{width: '60px', marginLeft: '5px'}}
+            sx={{width: '60px', marginLeft: '5px', padding: '0'}}
             variant="outlined" 
             type="text" 
             name="heightStitch" 
@@ -93,7 +93,7 @@ const Form = ({ onSubmit }) => {
             <label>Відступ від краю(см):
             <TextField 
             type="text" 
-            sx={{width: '60px'}}
+            sx={{width: '60px',  padding: '0'}}
             name="marginStitch" 
             onChange={handleChange}
             value={marginStitch}
