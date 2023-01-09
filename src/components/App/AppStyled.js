@@ -31,5 +31,7 @@ export const Wrap = styled.div`
   @media screen and (max-width: 767px) {
     padding: 10px;
     width: 280px;
+    border: none;
+
   }
 `;
