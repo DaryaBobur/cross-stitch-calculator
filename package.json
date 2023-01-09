@@ -2,7 +2,7 @@
   "name": "cross-stitch-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/cross-stitch-calculator/",
+  "homepage": "https://DaryaBobur.github.io/cross-stitch-calculator/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
