@@ -69,6 +69,7 @@ const Form = ({ onSubmit }) => {
             onChange={handleChange}
             value={widthStitch}
             size="small"
+            autocomplete="off"
             required
           />
           x
@@ -80,6 +81,7 @@ const Form = ({ onSubmit }) => {
             onChange={handleChange}
             value={heightStitch}
             size="small"
+            autocomplete="off"
             required
           />
         </label>
@@ -94,6 +96,7 @@ const Form = ({ onSubmit }) => {
             onChange={handleChange}
             value={marginStitch}
             size="small"
+            autocomplete="off"
             required
           />
         </label>
@@ -107,6 +110,7 @@ const Form = ({ onSubmit }) => {
             onChange={handleChange}
             size="small"
             sx={{ width: '150px' }}
+            autocomplete="off"
             required
           >
             <option>Кількість ниток...</option>
